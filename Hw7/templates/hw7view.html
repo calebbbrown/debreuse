@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+  <head>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename = 'hw7view.js') }}"></script>
+
+    <script>
+      var viewed = {{currviewed|tojson}}
+    </script>
+
+    <style>
+    .navbar-brand{
+
+        text-decoration: underline;
+        text-decoration-color: red;
+
+    }
+      div{
+        padding-top:10px;
+        padding-left:10px;
+      }
+      #title{
+        padding-bottom:20px;
+        padding-top:10px;
+        font-size:x-large;
+        font-weight:bold;
+        margin-left: 100px;
+        text-decoration: underline;
+        text-decoration-color: red;
+      }
+      #viewframe1{
+        margin-left: 5px;
+      }
+      #viewframe25{
+        margin-left: 5px;
+      }
+      #viewframe3{
+        margin-left: 5px;
+      }
+      #viewframe4{
+        margin-left: 10px;
+      }
+      #viewframe6{
+        margin-left: 15px;
+      }
+      #edit1{
+        display:none;
+      }
+      #edit2{
+        display:none;
+      }
+      button{
+        margin-left: 5px;
+      }
+      #black{
+        color:black;
+      }
+
+
+    </style>
+
+  </head>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  <a class="navbar-brand" href="#">SPQRhub</a>
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item active">
+      <a class="nav-link" href="http://127.0.0.1:5000">Home <span class="sr-only"></span></a>
+    </li>
+    <li class="nav-item">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" id="Search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" id="searchbut" type="reset">Search</button>
+      </form>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " id="black" href="http://127.0.0.1:5000/create">Create</a>
+    </li>
+  </ul>
+
+</div>
+</nav>
+
+      <div id="title">Emperor Details:</div>
+
+
+      <div id="viewframe1"></div>
+      <div id="viewframe2">
+        <div id="edit1">Cause of Death: <input id="editdescrip" type="text"><button id="submitbut1">Submit Changes</button><button  id="resetbut1" >Discard</button></div>
+        <div id="viewframe4insert"></div>
+      </div>
+      <div id=viewframe25></div>
+      <div id="viewframe3"></div>
+      <div id="viewframe4">
+      </div>
+      <div id="viewframe5">
+        <div id="edit2">Rating: <input type=text id="editrate"><button id="submitbut2">Submit Changes</button><button  id="resetbut2" >Discard</button></div>
+        <div id="viewframe5insert"></div>
+      </div>
+      <div id="viewframe6"><b><u>Children:</b></u></div>
+
+
+
+
+
+
+
+
+
+
+  </body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+  <head>
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="{{ url_for('static', filename = 'hw7create.js') }}"></script>
+    <script>
+        var created = {{created|tojson}}
+    </script>
+
+    <style>
+      #warnid{
+        display:none;
+        color:red;
+      }
+      #warnid2{
+        display:none;
+        color:red;
+      }
+      #warnname{
+        display:none;
+        color:red;
+      }
+      #warndeath{
+        display:none;
+        color:red;
+      }
+      #warnstart{
+        display:none;
+        color:red;
+      }
+      #warnend{
+        display:none;
+        color:red;
+      }
+      #warndescrip{
+        display:none;
+        color:red;
+      }
+      #warnrate{
+        display:none;
+        color:red;
+      }
+      #warnportrait{
+        display:none;
+        color:red;
+      }
+      #clientblank{
+        display:none;
+        color:red;
+      }
+      #black{
+        color:black;
+      }
+      #title{
+        padding-bottom:20px;
+        padding-top:10px;
+        font-size:x-large;
+        font-weight:bold;
+        margin-left: 100px;
+        text-decoration: underline;
+        text-decoration-color: red;
+      }
+      #viewcreated{
+        font-weight: bold;
+        padding-left:100px;
+      }
+      div{
+        padding-top:8px;
+      }
+      .navbar-brand{
+
+          text-decoration: underline;
+          text-decoration-color: red;
+
+      }
+
+    </style>
+
+
+  </head>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+  <a class="navbar-brand" href="#">SPQRhub</a>
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <li class="nav-item active">
+      <a class="nav-link" href="http://127.0.0.1:5000">Home <span class="sr-only"></span></a>
+    </li>
+    <li class="nav-item">
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" id="Search" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" id="searchbut" type="reset">Search</button>
+      </form>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " id="black" href="http://127.0.0.1:5000/create">Create</a>
+    </li>
+  </ul>
+
+</div>
+</nav>
+
+
+  <body>
+    <div id="viewcreated"></div>
+
+    <div class="container" id="labels">
+      <div class="row" id="title">
+        <div id="title" class="col-md-6">
+          Add New Emperor:
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          Enter <b><u>ID:</u></b>
+        </div>
+
+        <div class="col-md-2">
+          <input type="text" size="4" value="" id="id"/>
+          <p id="warnid">Please enter a Number</p>
+          <p id="warnid2">You cannot leave this field blank</p>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          Enter <b><u>Name:</u></b>
+        </div>
+        <div class="col-md-5">
+          <input type="text" value="" id="name"/>
+          <p id="warnname">You cannot leave this field blank</p>
+        </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        Enter <b><u>Cause of Death:</u></b>
+      </div>
+      <div class="col-md-5">
+        <input type="text" value="" id="death"/>
+        <p id="warndeath">You cannot leave this field blank</p>
+      </div>
+
+
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      Enter <b><u>Portrait Link:</u></b>
+    </div>
+    <div class="col-md-5">
+      <input type="text" value="" id="portrait"/>
+      <p id="warnportrait">You cannot leave this field blank</p>
+    </div>
+
+
+</div>
+  <div class="row">
+    <div class="col-md-3">
+      Enter <b><u>Start of Reign:</u></b>
+    </div>
+
+    <div class="col-md-2">
+      <input type="text" size="4" value="" id="reigns"/>
+      <p id="warnstart">Please Enter a Number</p>
+
+    </div>
+    <div class="col-md-3">
+      Enter <b><u>End of Reign:</u></b>
+    </div>
+    <div class="col-md-2">
+      <input type="text" size="4" value="" id="reigne"/>
+      <p id="warnend">Please Enter a Number</p>
+
+    </div>
+
+  </div>
+
+
+    <div class="row">
+      <div class="col-md-3">
+        Enter <b><u>description:</u></b>
+      </div>
+      <div class="col-md-5">
+        <input type="text" value="" id="descrip"/>
+        <p id="warndescrip">You cannot leave this field blank</p>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        Enter <b><u>rating:</u></b>
+      </div>
+
+      <div class="col-md-2">
+        <input type="text" size="4" value="" id="rating"/>
+        <p id="warnrate">Please Enter a Number</p>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        Enter <b><u>Children:</u></b>
+      </div>
+      <div class="col-md-5">
+        <input type="text" value="" id="children"/>
+
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-md-5">
+        <button id="post">Submit</button>
+
+      </div>
+
+    </div>
+
+    </div>
+
+
+
+
+  </body>
+
+
+</html>
